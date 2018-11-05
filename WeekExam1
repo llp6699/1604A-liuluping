@@ -1,0 +1,18 @@
+<?php
+$a=1;
+$b=10;
+while ($b>1) {
+	$a=($a+1)*2;
+	$b--;
+}
+echo $a;
+
+
+/*$ip=127.26;
+echo $ip2long($ip);*/
+
+
+
+$a=111111;
+echo strlen($a);
+?>
