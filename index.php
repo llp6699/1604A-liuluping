@@ -1,36 +1,28 @@
 <?php
-echo ugly(14);
-function ugly($ugly)
+//冒泡方法
+// 1.循环外层 i
+// 2.内层循环 j，判断条件是j=i+1;j<arr.length;j++
+// 3.内层调换 arr[i].arr[j] > arr[j].arr[i] 调换位置
+function Number2($arr)
 {
-    if($ugly==1)return 1;
-    if(getUgly($ugly)==false)return "不是丑数";
-    $j = 1;
-    for($i=2;;$i++)
-    {
-        $a = getUgly($i);
-        if($a){
-            $j++;
-        }
-        if($i==$ugly){
-            return $j;
+    $length=count($arr);
+
+    for($i=0;$i<$length;$i++){
+
+        for($j=$i+1;$j<$length;$j++){
+
+            if(($arr[$i].''.$arr[$j])>($arr[$j].''.$arr[$i])){
+                $temp=$arr[$i];
+
+                $arr[$i]=$arr[$j];
+
+                $arr[$j]=$temp;
+            }
         }
     }
+    return (implode('',$arr));
 }
-function getUgly($ugly)
-{
-   if($ugly<=0) return false;
-   while($ugly!=1)
-   {
-       while($ugly%2==0)
-       {
-           $ugly = $ugly/2;
-       }
-       while($ugly%3==0){
-           $ugly = $ugly/3;
-       }
-       while($ugly%5==0){
-           $ugly = $ugly/5;
-       }
-       return $ugly==1?true:false;
-   }
-}
+$arr = [43,12,443];
+$result=Number2($arr);
+
+echo "2:".$result;
